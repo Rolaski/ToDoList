@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stylized Task List</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>To-Do List</h1>
+      <form id="new-task-form">
+        <input 
+          type="text" 
+          name="new-task-input" 
+          id="new-task-input" 
+          placeholder="Enter your task"
+          autocomplete="off" />
+        <input 
+          type="submit"
+          id="new-task-submit" 
+          value="Add Task" />
+      </form>
+    </header>
+    <main>
+      <section class="task-list" id="tasks">
+        <!-- Task items will be dynamically added here -->
+      </section>
+      <section class="about-me">
+        <a href="https://github.com/Rolaski">
+            <img src="images/github.png" alt="My Photo" />
+        </a>
+        <p>Project by: Jakub Jakubowski</p>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
