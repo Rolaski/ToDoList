@@ -1,183 +1,305 @@
 :root {
-    --dark: #2e2e2e;
-    --darker: #4b4b4b;
-    --darkest: #1c1c1c;
-    --grey: #808080;
-    --pink: #ff4081;
-    --purple: #7e57c2;
-    --light: #f7f7f7;
-    --box-shadow-color: rgba(0, 0, 0, 0.2);
-  }
-  
-  * {
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Fira sans", sans-serif;
-  }
-  
-  body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    color: #fff;
-    background-color: var(--darker);
-    margin: 0;
-  }
-  
-  .container {
-    max-width: 800px;
-    width: 100%;
-    margin: auto;
-    overflow: hidden;
-    border-radius: 1rem;
-    box-shadow: 0 0 10px var(--box-shadow-color);
-    margin-top: 0;
-    background-color: var(--dark);
-    transition: background-color 0.4s;
-  }
-  
-  header {
-    padding: 2rem 1rem;
-  }
-  
-  header h1 {
-    font-size: 2.5rem;
-    font-weight: 300;
-    color: var(--grey);
-    margin-bottom: 1rem;
-    transition: color 0.4s;
-  }
-  
-  #new-task-form {
-    display: flex;
-  }
-  
-  input,
-  button {
-    appearance: none;
-    border: none;
-    outline: none;
-    background: none;
-  }
-  
-  #new-task-input {
-    flex: 1 1 0%;
-    background-color: var(--darker);
-    padding: 1rem;
-    border-radius: 1rem;
-    margin-right: 1rem;
-    color: var(--light);
-    font-size: 1.25rem;
-    transition: background-color 0.4s, color 0.4s;
-  }
-  
-  #new-task-input::placeholder {
-    color: var(--grey);
-  }
-  
-  #new-task-submit {
-    color: var(--pink);
-    font-size: 1.25rem;
-    font-weight: 700;
-    background-image: linear-gradient(to right, var(--pink), var(--purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    cursor: pointer;
-    transition: 0.4s;
-  }
-  
-  #new-task-submit:hover {
-    opacity: 0.8;
-  }
-  
-  #new-task-submit:active {
-    opacity: 0.6;
-  }
-  
-  main {
-    flex: 1 1 0%;
-  }
-  
-  .task-list {
-    padding: 1rem;
-  }
-  
-  .task-list h2 {
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: var(--grey);
-    margin-bottom: 1rem;
-    transition: color 0.4s;
-  }
-  
-  #tasks .task {
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--darkest);
-    padding: 1rem;
-    border-radius: 1rem;
-    margin-bottom: 1rem;
-    transition: background-color 0.4s;
-  }
-  
-  .task .content {
-    flex: 1 1 0%;
-  }
-  
-  .task .content .text {
-    color: var(--light);
-    font-size: 1.125rem;
-    width: 100%;
-    display: block;
-    transition: color 0.4s;
-  }
-  
-  .task .content .text:not(:read-only) {
-    color: var(--pink);
-  }
-  
-  .task .actions {
-    display: flex;
-    margin: 0 -0.5rem;
-  }
-  
-  .task .actions button {
-    cursor: pointer;
-    margin: 0 0.5rem;
-    font-size: 1.125rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    transition: 0.4s;
-  }
-  
-  .task .actions button:hover {
-    opacity: 0.8;
-  }
-  
-  .task .actions button:active {
-    opacity: 0.6;
-  }
-  
-  .task .actions .edit {
-    background-image: linear-gradient(to right, var(--pink), var(--purple));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transition: background-image 0.4s;
-  }
+  --dark: #2e2e2e;
+  --darker: #4b4b4b;
+  --darkest: #1c1c1c;
+  --grey: #808080;
+  --darkpurple: #5F0F40;
+  --orange: #FB8B24;
+  --red: #9A031E;
+  --light: #f7f7f7;
+  --box-shadow-color: rgba(0, 0, 0, 0.2);
+}
 
-  .about-me {
-    padding: 1rem;
-    text-align: center;
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  background-color: var(--darker);
+  margin: 0;
+  scrollbar-color: var(--darkpurple) 
+                   var(--orange);
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+  flex: 1;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px var(--box-shadow-color);
+  margin-top: auto;
+  background-color: var(--dark);
+  transition: background-color 0.4s;
+}
+
+header {
+  padding: 2rem 1rem;
+}
+
+header h1 {
+  font-size: 4.5rem;
+  font-weight: 600;
+  background-image: linear-gradient(to right, var(--orange), var(--red));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  transition: color 0.4s;
+}
+
+#new-task-form {
+  display: flex;
+}
+
+input,
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+#tasks .task .actions .edit {
+  color: var(--orange); 
+  background-color: transparent; 
+  transition: color 0.4s;
+}
+
+#tasks .task .actions .delete {
+  color: var(--red); 
+  background-color: transparent; 
+  transition: color 0.4s;
+}
+
+#new-task-input {
+  flex: 1 1 0%;
+  background-color: var(--darker);
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-right: 1rem;
+  color: var(--light);
+  font-size: 1.25rem;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+#new-task-input::placeholder {
+  color: var(--grey);
+}
+
+#new-task-submit {
+  background-color: var(--red);
+  font-size: 1.8rem;
+  font-weight: 800;
+  background-image: var(--red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+#new-task-submit:hover {
+  opacity: 0.8;
+}
+
+#new-task-submit:active {
+  opacity: 0.6;
+}
+
+main {
+  flex: 1 1 0%;
+}
+
+.task .actions button:hover {
+  animation: rotateButton 0.8s ease-in-out;
+}
+
+@keyframes rotateButton {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  .about-me img {
-    max-width: 100%;
-    border-radius: 50%;
-    margin-bottom: 1rem;
-    transition: transform 0.4s ease-in-out;
+  25% {
+    transform: rotate(10deg);
   }
-  
-  .about-me img:hover {
-    transform: scale(1.1);
+  50% {
+    transform: rotate(-10deg);
   }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.task-list {
+  padding: 1rem;
+}
+
+.task-list h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--grey);
+  margin-bottom: 1rem;
+  transition: color 0.4s;
+}
+
+#tasks .task {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--darkest);
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  transition: background-color 0.4s;
+}
+
+.task .content {
+  flex: 1 1 0%;
+}
+
+.task .content .text {
+  color: var(--light);
+  font-size: 1.125rem;
+  width: 100%;
+  display: block;
+  transition: color 0.4s;
+}
+
+.task .content .text:not(:read-only) {
+  color: var(--orange);
+}
+
+.task .actions {
+  display: flex;
+  margin: 0 -0.5rem;
+}
+
+.task .actions button {
+  cursor: pointer;
+  margin: 0 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.4s;
+}
+
+.task .actions button:hover {
+  opacity: 0.8;
+}
+
+.task .actions button:active {
+  opacity: 0.6;
+}
+
+.task .actions .edit {
+  background-image: var(--orange);
+  transition: background-image 0.4s;
+}
+
+footer {
+  padding: 2rem 1rem;
+  background-color: var(--darkest);
+  color: var(--grey);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+footer h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  transition: color 0.4s;
+}
+
+.imageContainer {
+  overflow: hidden;
+  position: relative;
+}
+
+.image-carousel {
+  white-space: nowrap;
+  transition: transform 0.4s ease-in-out;
+  overflow: hidden;
+}
+
+.image-carousel .prev,
+.image-carousel .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: var(--orange);
+  cursor: pointer;
+  z-index: 1;
+}
+
+.image-carousel figure {
+  display: inline-block;
+  margin: 0;
+  transition: transform 0.4s ease-in-out;
+  white-space: nowrap;
+}
+
+
+.image-carousel figure img {
+  width: 100%;
+  border-radius: 50%;
+  display: block;
+}
+
+footer .prev,
+footer .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: var(--orange);
+  cursor: pointer;
+}
+
+footer .prev {
+  left: 10px;
+}
+
+footer .next {
+  right: 10px;
+}
+
+footer .prev:hover,
+footer .next:hover {
+  color: var(--red);
+}
+
+footer .AboutMe img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+  transition: transform 0.4s ease-in-out;
+}
+
+
+
+body::-webkit-scrollbar {
+  width: var(--orange) 
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--orange);
+  border-radius: 8px;
   
+  }
