@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
   <title>Stylized Task List</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="MediaQuery.css" />
 </head>
+
 <body>
+
   <div class="container">
     <header>
       <h1>To-Do List</h1>
@@ -20,21 +27,33 @@
         <input 
           type="submit"
           id="new-task-submit" 
-          value="Add Task" />
+          value="Add Task" class="form-input-button" />
       </form>
     </header>
+
     <main>
       <section class="task-list" id="tasks">
         <!-- Task items will be dynamically added here -->
       </section>
-      <section class="about-me">
-        <a href="https://github.com/Rolaski">
-            <img src="images/github.png" alt="My Photo" />
-        </a>
+    </main>
+
+    <footer>
+      <section class="AboutMe">
+        <h2>About Me</h2>
+        <div class="imageContainer">
+          <div class="image-carousel">
+            <!-- Dynamicznie dodane zdjęcia -->
+          </div>
+          <div class="prev">&#8592;</div>
+          <div class="next">&#8594;</div>
+        </div>
         <p>Project by: Jakub Jakubowski</p>
       </section>
-    </main>
+    </footer>
+
   </div>
+
   <script src="app.js"></script>
 </body>
+
 </html>
