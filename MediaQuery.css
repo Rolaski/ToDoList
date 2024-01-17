@@ -1,72 +1,87 @@
 @media only screen and (max-width: 576px) {
-    .form-input-button {
-      margin-top: 10px;
-    }
-    .selectoption {
-      margin-top: 10px;
-    }
-    .col-sm-8,
-    .col-sm-2 {
-      padding-right: 10px;
-      padding-left: 0px !important;
-    }
+  #new-task-input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
   }
-  
-  @media only screen and (max-width: 991.98px) {
-    .form-input-button,
-    .selectoption {
-      margin-top: 10px;
-    }
+  #new-task-form {
+    flex-direction: column;
   }
-  
-  @media only screen and (min-width: 992px) {
-    .col-lg-8,
-    .col-lg-2 {
-      padding-right: 10px !important;
-      padding-left: 0px !important;
-    }
+  #new-task-input,
+  #new-task-submit {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
   }
+}
 
-  @media screen and (min-width: 576px) {
-    .image-carousel figure {
-      width: 80px;
-    }
+@media only screen and (max-width: 991.98px) {
+  .form-input-button,
+  .selectoption {
+    margin-top: 10px;
   }
+}
 
-  @media screen and (min-width: 576px) {
-    footer .AboutMe img {
-      width: 80px;
-      height: 80px;
-    }
+@media only screen and (min-width: 992px) {
+  .col-lg-8,
+  .col-lg-2 {
+    padding-right: 10px !important;
+    padding-left: 0px !important;
   }
-  
-  @media only screen and (max-width: 576px) {
-    .form-input-button {
-      margin-top: 10px;
-    }
-    .selectoption {
-      margin-top: 10px;
-    }
-    .col-sm-8,
-    .col-sm-2 {
-      padding-right: 10px;
-      padding-left: 0px !important;
-    }
+}
+
+@media screen and (min-width: 576px) {
+  .image-carousel figure {
+    width: 80px;
   }
-  
-  @media only screen and (max-width: 991.98px) {
-    .form-input-button,
-    .selectoption {
-      margin-top: 10px;
-    }
+  #new-task-form {
+    flex-direction: row;
+    align-items: center;
   }
-  
-  @media only screen and (min-width: 992px) {
-    .col-lg-8,
-    .col-lg-2 {
-      padding-right: 10px !important;
-      padding-left: 0px !important;
-    }
+  #new-task-input {
+    width: calc(70% - 10px);
+    padding: 10px;
+    margin-bottom: 0;
+    margin-right: 10px;
   }
-  
-  
+  #new-task-submit {
+    width: 30%;
+    padding: 10px;
+  }
+}
+
+@media screen and (min-width: 576px) {
+  footer .AboutMe img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .form-input-button {
+    margin-top: 10px;
+  }
+  .selectoption {
+    margin-top: 10px;
+  }
+  .col-sm-8,
+  .col-sm-2 {
+    padding-right: 10px;
+    padding-left: 0px !important;
+  }
+}
+
+@media only screen and (max-width: 991.98px) {
+  .form-input-button,
+  .selectoption {
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .col-lg-8,
+  .col-lg-2 {
+    padding-right: 10px !important;
+    padding-left: 0px !important;
+  }
+}

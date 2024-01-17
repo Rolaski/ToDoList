@@ -1,43 +1,51 @@
-window.addEventListener('load', () => {
+window.addEventListener('load', () => 
+{
   const form = document.querySelector("#new-task-form");
   const input = document.querySelector("#new-task-input");
   const list_el = document.querySelector("#tasks");
 
-  // Załaduj zadania z lokalnego magazynu podczas ładowania strony
+  // Ładowanie zadań z lokalnego magazynu podczas ładowania strony
   let storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
   // Funkcja do renderowania zadań
-  const renderTasks = () => {
+  const renderTasks = () => 
+  {
     list_el.innerHTML = '';
 
-    storedTasks.forEach((taskText) => {
+    storedTasks.forEach((taskText) =>
+     {
       const task_el = createTaskElement(taskText);
       list_el.appendChild(task_el);
     });
   };
 
   // Funkcja do obsługi dodawania nowego zadania
-  const addNewTask = () => {
+  const addNewTask = () => 
+  {
     const task = input.value;
 
-    // Wyrażenie regularne do sprawdzenia, czy wprowadzone dane zawierają tylko dozwolone znaki
-    const validCharactersRegex = /^[a-zA-Z0-9ąćęłńóśźżĄĆĘŁŃÓŚŹŻ.,\-/]+$/;
+    const validCharactersRegex = /^[a-zA-Z0-9ąćęłńóśźżĄĆĘŁŃÓŚŹŻ.,\-/\s]+$/;
 
-    if (task.trim() !== '' && validCharactersRegex.test(task)) {
+    if (task.trim() !== '' && validCharactersRegex.test(task)) 
+    {
       // Dodaj nowe zadanie do tablicy zadań
       storedTasks = [...storedTasks, task];
       localStorage.setItem('tasks', JSON.stringify(storedTasks));
 
       // Symuluj operację asynchroniczną (poczekaj 1 sekundę przed ponownym renderowaniem)
       setTimeout(() => {
-        renderTasks(); // Ponowne renderowanie zadań
+        renderTasks(); 
       }, 1000);
 
       input.value = '';
-    } else if (task.trim() === '') {
+    } 
+    else if (task.trim() === '') 
+    {
       // Wyświetl alert, jeżeli pole jest puste
       alert('Task field cannot be empty!');
-    } else {
+    } 
+    else 
+    {
       // Wyświetl alert w przypadku błędnych danych
       alert('Invalid characters in the task field!');
       input.value = ''; // Wyczyszczenie pola wpisywania zadania
@@ -59,7 +67,9 @@ window.addEventListener('load', () => {
   });
 
   // Funkcja do tworzenia elementu zadania
-  const createTaskElement = (taskText) => {
+  // dynamiczne dodawanie nowych zadań w formie listy
+  const createTaskElement = (taskText) => 
+  {
     const task_el = document.createElement('div');
     task_el.classList.add('task');
 
@@ -93,7 +103,8 @@ window.addEventListener('load', () => {
     task_el.appendChild(task_actions_el);
 
     // Słuchacze zdarzeń dla przycisków edytuj i usuń
-    task_actions_el.addEventListener('click', (e) => {
+    task_actions_el.addEventListener('click', (e) => 
+    {
       if (e.target.classList.contains('edit')) {
         editTask(task_input_el, taskText, task_edit_el);
       } else if (e.target.classList.contains('delete')) {
@@ -105,35 +116,48 @@ window.addEventListener('load', () => {
   };
 
   // Funkcja do edycji zadania
-  const editTask = (task_input_el, oldTaskText, task_edit_el) => {
-    // Zmień atrybut readonly, aby umożliwić edycję
-    task_input_el.removeAttribute('readonly');
-    // Dodaj focus do pola tekstowego
-    task_input_el.focus();
+  // Rozpoczęcie edycji -> jeszcze nie wiemy czy przejdzie pomyślnie czy nie
+  const editTask = (task_input_el, oldTaskText, task_edit_el) => 
+  {
+    task_input_el.removeAttribute('readonly');    // Zmień atrybut readonly, aby umożliwić edycję
+    task_input_el.focus();    // Dodaj focus do pola tekstowego
+    task_edit_el.innerText = 'SAVE';    // Zmień tekst przycisku na "Zapisz"
 
-    // Zmień tekst przycisku na "Zapisz"
-    task_edit_el.innerText = 'SAVE';
-
-    // Przygotuj funkcję saveChanges do zapisywania zmian
-    const saveChanges = () => {
+    // Przygotowanie funkcji do zapisywania zmian
+    const validCharactersRegex = /^[a-zA-Z0-9ąćęłńóśźżĄĆĘŁŃÓŚŹŻ.,\-/\s]+$/;
+    const saveChanges = () => 
+    {
       const newTaskText = task_input_el.value;
 
-      if (newTaskText !== oldTaskText) {
+      // Sprawdź, czy nowy tekst spełnia kryteria walidacji
+      if (newTaskText.trim() !== '' && validCharactersRegex.test(newTaskText)) 
+      {
         // Zaktualizuj tekst zadania w tablicy zadań
         storedTasks = storedTasks.map((task) => (task === oldTaskText ? newTaskText : task));
         localStorage.setItem('tasks', JSON.stringify(storedTasks));
-
         // Symuluj operację asynchroniczną (poczekaj 1 sekundę przed ponownym renderowaniem)
         setTimeout(() => {
-          renderTasks(); // Ponowne renderowanie zadań
+          renderTasks();
         }, 1000);
+      } 
+      else if (newTaskText.trim() === '') 
+      {
+       // Wyświetl alert, jeżeli pole jest puste
+        alert('Task field cannot be empty!');
+      } 
+      else 
+      {
+       // Wyświetl alert w przypadku błędnych danych
+        alert('Invalid characters in the task field!');
+        // Przywróć poprzedni tekst zadania
+        task_input_el.value = oldTaskText;
       }
 
-      // Ustaw atrybut readonly po zakończeniu edycji
-      task_input_el.setAttribute('readonly', 'readonly');
+     // Ustaw atrybut readonly po zakończeniu edycji
+    task_input_el.setAttribute('readonly', 'readonly');
 
-      // Zmień tekst przycisku z powrotem na "Edytuj"
-      task_edit_el.innerText = 'EDIT';
+     // Zmień tekst przycisku z powrotem na "Edytuj"
+     task_edit_el.innerText = 'EDIT';
     };
 
     // Dodaj nasłuchiwacz zdarzeń dla przycisku "Zapisz"
@@ -151,7 +175,8 @@ window.addEventListener('load', () => {
   };
 
   // Funkcja do usuwania zadania
-  const deleteTask = (task_el, taskText) => {
+  const deleteTask = (task_el, taskText) => 
+  {
     // Usuń zadanie z tablicy zadań
     storedTasks = storedTasks.filter((task) => task !== taskText);
     localStorage.setItem('tasks', JSON.stringify(storedTasks));
@@ -166,26 +191,31 @@ window.addEventListener('load', () => {
   renderTasks();
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+// Dynamiczne dodawanie do dokumentu obrazków 
+document.addEventListener("DOMContentLoaded", function () 
+{
   const prevButton = document.querySelector('.prev');
   const nextButton = document.querySelector('.next');
   const carousel = document.querySelector('.image-carousel');
 
-  const images = [
+  const images = 
+  [
     { src: "images/linkedin.png", link: "https://www.linkedin.com/in/jakub-jakubowski-54076123b/" },
     { src: "images/github.png", link: "https://github.com/Rolaski" },
     { src: "images/youtube.png", link: "https://www.youtube.com/channel/UC4not1DNbD0wDPWUoArL7HQ" }
   ];
 
-  let currentIndex = 1; // Zdjęcie GitHub będzie widoczne na starcie
+  let currentIndex = 1; // Zdjęcie GitHub będzie widoczne na dziendobry
 
   updateCarousel();
 
+  //przycisk poprzednie zdjęcie
   prevButton.addEventListener('click', () => {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
     updateCarousel('prev');
   });
 
+  //przycisk następne zdjęcie
   nextButton.addEventListener('click', () => {
     currentIndex = (currentIndex + 1) % images.length;
     updateCarousel('next');
