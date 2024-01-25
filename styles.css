@@ -1,3 +1,10 @@
+/*
+  Stylizacja zmiennych
+*/
+
+/*
+  :root - Zmienne globalne używane w projekcie.
+*/
 :root {
   --dark: #2e2e2e;
   --darker: #4b4b4b;
@@ -10,12 +17,18 @@
   --box-shadow-color: rgba(0, 0, 0, 0.2);
 }
 
+/*
+  Resetowanie stylów domyślnych i definicja czcionki dla całej strony.
+*/
 * {
   margin: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }
 
+/*
+  Stylizacja głównego kontenera strony.
+*/
 body {
   display: flex;
   flex-direction: column;
@@ -26,6 +39,9 @@ body {
   scrollbar-color: var(--darkpurple) var(--orange);
 }
 
+/*
+  Stylizacja kontenera głównego zawierającego treść strony.
+*/
 .container {
   max-width: 800px;
   width: 100%;
@@ -39,6 +55,9 @@ body {
   transition: background-color 0.4s;
 }
 
+/*
+  Stylizacja nagłówka strony.
+*/
 header {
   padding: 2rem 1rem;
 }
@@ -53,10 +72,16 @@ header h1 {
   transition: color 0.4s;
 }
 
+/*
+  Stylizacja formularza do dodawania nowych zadań.
+*/
 #new-task-form {
   display: flex;
 }
 
+/*
+  Stylizacja elementów wejściowych formularza.
+*/
 input,
 button {
   appearance: none;
@@ -65,6 +90,9 @@ button {
   background: none;
 }
 
+/*
+  Stylizacja przycisków edycji i usuwania zadań.
+*/
 #tasks .task .actions .edit {
   color: var(--orange);
   background-color: transparent;
@@ -77,6 +105,9 @@ button {
   transition: color 0.4s;
 }
 
+/*
+  Stylizacja pola do wprowadzania nowego zadania.
+*/
 #new-task-input {
   flex: 1 1 0%;
   background-color: var(--darker);
@@ -93,6 +124,9 @@ button {
   color: var(--grey);
 }
 
+/*
+  Stylizacja przycisku do dodawania nowego zadania.
+*/
 #new-task-submit {
   background-color: var(--red);
   font-size: 1.8rem;
@@ -114,32 +148,16 @@ button {
   opacity: 0.6;
 }
 
+/*
+  Stylizacja głównej sekcji zadan na stronie.
+*/
 main {
   flex: 1 1 0%;
 }
 
-.task .actions button:hover {
-  animation: rotateButton 0.8s ease-in-out;
-}
-
-@keyframes rotateButton {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(10deg);
-  }
-  50% {
-    transform: rotate(-10deg);
-  }
-  75% {
-    transform: rotate(5deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
+/*
+  Stylizacja listy zadań.
+*/
 .task-list {
   padding: 1rem;
 }
@@ -205,6 +223,9 @@ main {
   transition: background-image 0.4s;
 }
 
+/*
+  Stylizacja stopki strony.
+*/
 footer {
   padding: 2rem 1rem;
   background-color: var(--darkest);
@@ -222,6 +243,9 @@ footer h2 {
   transition: color 0.4s;
 }
 
+/*
+  Stylizacja karuzeli obrazków w stopce.
+*/
 .imageContainer {
   overflow: hidden;
   position: relative;
@@ -280,6 +304,9 @@ footer .next:hover {
   color: var(--red);
 }
 
+/*
+  Stylizacja zdjęcia autora w stopce.
+*/
 footer .AboutMe img {
   width: 60px;
   height: 60px;
@@ -289,6 +316,9 @@ footer .AboutMe img {
   transition: transform 0.4s ease-in-out;
 }
 
+/*
+  Stylizacja paska przewijania.
+*/
 body::-webkit-scrollbar {
   width: var(--orange);
 }
