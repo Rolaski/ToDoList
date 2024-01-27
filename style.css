@@ -122,6 +122,7 @@ main {
 
 #new-task-form {
   display: flex;
+  flex-wrap: wrap;
 }
 
 /*
@@ -169,10 +170,10 @@ button {
 */
 
 #new-task-input {
-  flex: 1 1 0%;
+  flex: 1;
+  width: calc(70% - 10px);
   background-color: var(--darker);
   border-radius: 1rem;
-  width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   color: var(--light);
@@ -201,7 +202,7 @@ button {
   -webkit-text-fill-color: transparent;
   cursor: pointer;
   transition: 0.4s;
-  width: 100%;
+  flex: 0 0 calc(30% - 10px);
   padding: 10px;
 }
 

@@ -30,23 +30,23 @@
   }
 }
 
-@media screen and (min-width: 576px) {
-  .image-carousel figure {
-    width: 80px;
+@media screen and (max-width: 576px) {
+  #new-task-input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
   }
   #new-task-form {
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
   }
-  #new-task-input {
-    width: calc(70% - 10px);
+  #new-task-input,
+  #new-task-submit {
+    width: 100%;
     padding: 10px;
-    margin-bottom: 0;
-    margin-right: 10px;
+    margin-bottom: 10px;
   }
   #new-task-submit {
-    width: 30%;
-    padding: 10px;
+    width: calc(100% - 20px); /* Modyfikacja szerokości przycisku */
   }
 }
 
