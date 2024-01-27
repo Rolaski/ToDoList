@@ -1,0 +1,428 @@
+/*
+  Global Variables
+
+  Style globalne, takie jak resetowanie i ustawienia typograficzne.
+
+
+  @variable --dark - Dark color.
+  @variable --darker - Darker color.
+  @variable --darkest - Darkest color.
+  @variable --grey - Grey color.
+  @variable --darkpurple - Dark purple color.
+  @variable --orange - Orange color.
+  @variable --red - Red color.
+  @variable --light - Light color.
+  @variable --box-shadow-color - Shadow color.
+
+  Style guide: Global Styles
+  
+*/
+
+:root {
+  --dark: #2e2e2e;           /* Main dark color */
+  --darker: #4b4b4b;         /* Darker shade for depth */
+  --darkest: #1c1c1c;        /* Darkest shade for borders */
+  --grey: #808080;           /* Neutral grey color */
+  --darkpurple: #5F0F40;     /* Dark purple accent color */
+  --orange: #FB8B24;         /* Vibrant orange accent color */
+  --red: #9A031E;            /* Bold red accent color */
+  --light: #f7f7f7;          /* Light background color */
+  --box-shadow-color: rgba(0, 0, 0, 0.2);   /* Color for box shadows */
+}
+
+/*
+  Reset and Typography
+
+  Description: Resetowanie marginesów i ustawienia czcionki dla wszystkich elementów.
+
+  Style guide: Reset and Typography
+*/
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+/*
+  Body Styles
+
+  Description: Style dla elementu <body>, ustawienia koloru tekstu, tła i pasków przewijania.
+
+  Style guide: Body Styles
+
+*/
+
+body {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  background-color: rgba(251, 139, 36, 1);
+  background-image: radial-gradient(circle, rgba(251, 139, 36, 1) 26%, rgba(154, 3, 30, 1) 68%, rgba(95, 15, 64, 1) 100%);
+  margin: 0;
+  scrollbar-color: var(--darkpurple) var(--orange);
+}
+
+/*
+  Main Container Styles
+
+  Description: Style dla kontenera głównego, takie jak maksymalna szerokość, cienie i tło.
+
+  Style guide: Main Container Styles
+
+*/
+
+.container {
+  max-width: 800px;
+  width: 100%;
+  margin: auto;
+  overflow: hidden;
+  flex: 1;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px var(--box-shadow-color);
+  margin-top: auto;
+  background-color: var(--dark);
+  transition: background-color 0.4s;
+}
+
+/*
+  Header Styles
+
+  Description: Style dla nagłówka, w tym wielkość czcionki i gradient tła.
+
+  Style guide: Header Styles
+*/
+
+header {
+  padding: 2rem 1rem;
+}
+
+header h1 {
+  font-size: 4.5rem;
+  font-weight: 600;
+  background-image: linear-gradient(to right, var(--orange), var(--red));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+  transition: color 0.4s;
+}
+
+/*
+  Main Content Styles
+
+  Description: Style dla głównej zawartości strony.
+
+  Style guide: Main Content Styles
+*/
+
+main {
+  padding: 2rem 1rem;
+}
+*/
+
+#new-task-form {
+  display: flex;
+}
+
+/*
+  Form Elements Styles 
+  
+  Description: Resetowanie i style dla elementów formularza, takich jak pola wejściowe i przyciski.
+
+  Style guide: Form Elements Styles
+*/
+
+input,
+button {
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+}
+
+/*
+  Task Actions 
+
+  Description: Style dla akcji zadań, takie jak edytowanie i usuwanie.
+
+  Style guide: Task Actions 
+*/
+
+#tasks .task .actions .edit {
+  color: var(--orange);
+  background-color: transparent;
+  transition: color 0.4s;
+}
+
+#tasks .task .actions .delete {
+  color: var(--red);
+  background-color: transparent;
+  transition: color 0.4s;
+}
+
+/*
+  New Task Input styles
+
+  Description: Style dla pola wprowadzania nowego zadania.
+
+  Style guide: New Task Input styles
+*/
+
+#new-task-input {
+  flex: 1 1 0%;
+  background-color: var(--darker);
+  border-radius: 1rem;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: var(--light);
+  font-size: 1.25rem;
+  transition: background-color 0.4s, color 0.4s;
+}
+
+#new-task-input::placeholder {
+  color: var(--grey);
+}
+
+/*
+  New Task Submit Button styles
+
+  Description: Style dla przycisku przesyłania nowego zadania..
+
+  Style guide: New Task Submit Button styles
+*/
+
+#new-task-submit {
+  background-color: var(--red);
+  font-size: 1.8rem;
+  font-weight: 800;
+  background-image: var(--red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+  transition: 0.4s;
+  width: 100%;
+  padding: 10px;
+}
+
+#new-task-submit:hover {
+  opacity: 0.8;
+}
+
+#new-task-submit:active {
+  opacity: 0.6;
+}
+
+/*
+  Main Section styles
+
+  Description: Style dla sekcji głównej strony.
+
+  Style guide: Main Section styles
+*/
+
+main {
+  flex: 1 1 0%;
+}
+
+/*
+  Task List Styles
+
+  Description: Style dla listy zadań.
+
+  Style guide: Task List styles
+*/
+
+.task-list {
+  padding: 1rem;
+}
+
+.task-list h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: var(--grey);
+  margin-bottom: 1rem;
+  transition: color 0.4s;
+}
+
+#tasks .task {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--darkest);
+  padding: 1rem;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  transition: background-color 0.4s;
+}
+
+.task .content {
+  flex: 1 1 0%;
+}
+
+.task .content .text {
+  color: var(--light);
+  font-size: 1.125rem;
+  width: 100%;
+  display: block;
+  transition: color 0.4s;
+}
+
+.task .content .text:not(:read-only) {
+  color: var(--orange);
+}
+
+.task .actions {
+  display: flex;
+  margin: 0 -0.5rem;
+}
+
+.task .actions button {
+  cursor: pointer;
+  margin: 0 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.4s;
+}
+
+.task .actions button:hover {
+  opacity: 0.8;
+}
+
+.task .actions button:active {
+  opacity: 0.6;
+}
+
+.task .actions .edit {
+  background-image: var(--orange);
+  transition: background-image 0.4s;
+}
+
+/*
+  Footer Styles
+
+  Description: Style dla stopki strony.
+
+  Style guide: Footer Styles
+*/
+
+footer {
+  padding: 2rem 1rem;
+  background-color: var(--darkest);
+  color: var(--grey);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+footer h2 {
+  font-size: 1.5rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  transition: color 0.4s;
+}
+
+/*
+  Image Carousel Styles
+
+  Description: Style dla karuzeli obrazów w stopce strony.
+
+  Style guide: Image Carousel Styles
+*/
+
+.imageContainer {
+  overflow: hidden;
+  position: relative;
+}
+
+.image-carousel {
+  white-space: nowrap;
+  transition: transform 0.4s ease-in-out;
+  overflow: hidden;
+}
+
+.image-carousel .prev,
+.image-carousel .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: var(--orange);
+  cursor: pointer;
+  z-index: 1;
+}
+
+.image-carousel figure {
+  display: inline-block;
+  margin: 0;
+  transition: transform 0.4s ease-in-out;
+  white-space: nowrap;
+}
+
+.image-carousel figure img {
+  width: 100%;
+  border-radius: 50%;
+  display: block;
+}
+
+footer .prev,
+footer .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: var(--orange);
+}
+
+footer .prev {
+  left: 10px;
+}
+
+footer .next {
+  right: 10px;
+}
+
+footer .prev:hover,
+footer .next:hover {
+  color: var(--red);
+}
+
+/*
+  Author Image Styles
+
+  Description: Style dla obrazu autora w stopce strony.
+
+  Style guide: Author Image Styles
+*/
+
+footer .AboutMe img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+  transition: transform 0.4s ease-in-out;
+}
+
+/*
+  Scrollbar Styles
+
+  Description: Style dla paska przewijania w przeglądarce.
+
+  Style guide: Scrollbar Styles
+*/
+
+body::-webkit-scrollbar {
+  width: var(--orange);
+}
+
+body::-webkit-scrollbar-track {
+  background: var(--sb-track-color);
+  border-radius: 8px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--orange);
+  border-radius: 8px;
+}
