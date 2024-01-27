@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "generate-docs": "kss --config kss-config.json"
+  },
+  "name": "task-manager",
+  "description": "Prosty menadżer zadań",
+  "version": "1.0.0",
+  "main": "app.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "devDependencies": {
+    "michelangelo": "^0.8.0"
+  },
+  "author": "Jakub Jakubowski",
+  "license": "MIT"
+}
