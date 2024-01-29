@@ -10,7 +10,7 @@ class TaskManager {
    */
   constructor() {
     /**
-     * Lista przechowująca zadania.
+     * Lista przechowująca zadania w lokalnym magazynie wykorzystująć JSON.
      * @type {string[]}
      */
     this.storedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -18,7 +18,7 @@ class TaskManager {
   }
 
   /**
-   * Metoda renderująca zadania na stronie.
+   * Metoda renderująca zadania na stronie, dodając je do listy zadań.
    * @method
    */
   renderTasks() {
